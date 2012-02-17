@@ -10,6 +10,7 @@ Problem:
 
 Your solution
 -------------
+In Java,
     
     public static void runthenumbers() throws IOException{
         String divisable;
