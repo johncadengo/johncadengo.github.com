@@ -1,4 +1,4 @@
-<link href="../markdown.css" rel="stylesheet"></link>
+<link href="markdown.css" rel="stylesheet"></link>
 
 [Feedback](index.html)
 
