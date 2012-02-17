@@ -1,0 +1,29 @@
+<p><link href="../markdown.css" rel="stylesheet"></link></p>
+
+<p><a href="index.html">SQLite Cheat Sheet</a></p>
+
+<h1>DELETES</h1>
+
+<p><strong>Caution</strong>: If typos are made, could adversely affect database.</p>
+
+<h2>Empty trash bin</h2>
+
+<pre><code>DELETE FROM places
+WHERE id IN 
+(SELECT places.id
+FROM placestags INNER JOIN places on places.id = placestags.placeid
+INNER JOIN tags on tags.id = placestags.tagid
+WHERE tags.type = "Trash")
+</code></pre>
+
+<h2>Delete dangling tags</h2>
+
+<p>Dangling tags are tags that have no places attached to them.</p>
+
+<pre><code>DELETE FROM tags
+WHERE id IN 
+(SELECT tags.id
+FROM tags
+LEFT JOIN placestags on tags.id = placestags.tagid
+WHERE placestags.tagid IS NULL)
+</code></pre>

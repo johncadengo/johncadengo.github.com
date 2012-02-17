@@ -1,0 +1,187 @@
+<p><link href="../markdown.css" rel="stylesheet"></link></p>
+
+<p><a href="index.html">SQLite Cheat Sheet</a></p>
+
+<h1>QUERIES</h1>
+
+<p>Generally harmless, but if LIMITs are not used, could take time.</p>
+
+<h2>Get the first 100 places in the trash bin</h2>
+
+<pre><code>SELECT DISTINCT places.id, places.name, tags.id, tags.name, tags.type
+FROM placestags INNER JOIN places on places.id = placestags.placeid
+INNER JOIN tags on tags.id = placestags.tagid
+WHERE tags.type = "Trash"
+LIMIT 100
+</code></pre>
+
+<h2>Get the frequency of the first 100 tags </h2>
+
+<pre><code>SELECT count(*), tagid
+FROM placestags GROUP BY tagid
+LIMIT 100
+</code></pre>
+
+<p>Sample output (on ~260,000 rows, about 836ms):</p>
+
+<pre><code>count(*) | tagid
+----------------    
+120      | 1
+9        | 2
+</code></pre>
+
+<h2>Get the IDs of the 100 least frequent tags</h2>
+
+<p>This is a single table query.</p>
+
+<pre><code>SELECT count(*), tagid
+FROM placestags GROUP BY tagid
+ORDER BY count(*) asc
+LIMIT 100
+</code></pre>
+
+<p>If you want most frequent, change asc in the ORDER BY above to desc.</p>
+
+<p>Sample output (on ~260,000 rows, about 947ms):</p>
+
+<pre><code>count(*) | tagid
+----------------    
+1        | 4
+1        | 14
+1        | 21
+</code></pre>
+
+<h2>Get the names of the 100 least frequent tags</h2>
+
+<p>This query requires multiple tables.</p>
+
+<pre><code>SELECT count(*), tags.name
+FROM (placestags INNER JOIN places on places.id = placestags.placeid
+           INNER JOIN tags on tags.id = placestags.tagid)
+GROUP BY tags.id
+ORDER BY count(*) asc
+LIMIT 100
+</code></pre>
+
+<p>If you want most frequent, change asc in the ORDER BY above to desc.</p>
+
+<p>Sample output (on ~260,000 rows, about 1506ms):</p>
+
+<pre><code>count(*) | name
+------------------------
+1        | quick
+1        | good morning
+1        | spicy redneck
+</code></pre>
+
+<h2>Get the first 100 dangling tags</h2>
+
+<p>Dangling tags are tags that have no places attached to them.</p>
+
+<p>Should always return nothing. I had to manually put in a false tag to test it.</p>
+
+<pre><code>SELECT tags.id, tags.name
+FROM tags
+LEFT JOIN placestags on tags.id = placestags.tagid
+WHERE placestags.tagid IS NULL
+LIMIT 100
+</code></pre>
+
+<h2>Get all tags which have only occurred once</h2>
+
+<p>This includes tags of type "Category" and "Dish", etc.</p>
+
+<pre><code>SELECT count(*) AS freq, tags.name, tags.type
+FROM (placestags INNER JOIN places on places.id = placestags.placeid
+           INNER JOIN tags on tags.id = placestags.tagid)
+GROUP BY tags.id
+HAVING freq = 1
+</code></pre>
+
+<p>Sample output (on ~260,000 rows, about 1739ms):</p>
+
+<pre><code>freq | name           | type
+--------------------------------
+1    | quick          | Tag
+1    | good morning   | Tag
+1    | spicy redneck  | Dish
+1    | kobe beef roll | Category
+</code></pre>
+
+<h3>By type</h3>
+
+<p>Change last line <code>HAVING freq = 1</code> to <code>HAVING freq=1 and tags.type="Category"</code> 
+if you only want to get a specific type of tag. </p>
+
+<p>As of this example, only 87 Categories have been tagged once.</p>
+
+<pre><code>SELECT count(*) AS freq, tags.id AS CategoryID, tags.name AS CategoryName, places.id AS PlaceID, places.name AS PlaceName
+FROM (placestags INNER JOIN places on places.id = placestags.placeid
+           INNER JOIN tags on tags.id = placestags.tagid)
+GROUP BY tags.id
+HAVING freq = 1 and tags.type="Category"
+</code></pre>
+
+<h2>Get all the places which have no locations</h2>
+
+<pre><code>SELECT places.id, places.name
+FROM places LEFT JOIN locations on locations.placeid = places.id
+WHERE locations.placeid IS NULL
+</code></pre>
+
+<h2>Get all the places with address like</h2>
+
+<p>Here we are using the search string <code>'%carson%'</code> which will return
+any places with an address that contains the word "carson" in it.</p>
+
+<h5>Note:</h5>
+
+<p>The <code>%</code> are wildcard characters.</p>
+
+<pre><code>SELECT places.id, places.name, places.address
+FROM places 
+WHERE places.address like '%carson%'
+</code></pre>
+
+<p>Sample output (on ~16,000 rows, about 25 ms)</p>
+
+<pre><code>id     | name               | address
+-----------------------------------------------------------
+17361  | RA Sushi           | 3525 W Carson St # 161 90503
+17390  | BJ's Restaurant    | 2525 W. Carson Street 90503
+17410  | Buffalo Wild Wings | 3525 West Carson Street 90503
+</code></pre>
+
+<h2>Get all the places which share two tags</h2>
+
+<p>Taken from <a href="http://stackoverflow.com/a/9219481/693754">stackoverflow</a>.</p>
+
+<pre><code>SELECT places.name FROM places 
+  INNER JOIN placestags ON places.id=placestags.placeid 
+  WHERE placestags.tagid = 79
+INTERSECT 
+SELECT places.name FROM places 
+  INNER JOIN placestags ON places.id=placestags.placeid 
+  WHERE placestags.tagid = 81;
+</code></pre>
+
+<p>In the above example, we find the tags by <code>id</code>. We can also get the tag by <code>name</code>,</p>
+
+<pre><code>SELECT places.name FROM placestags 
+  INNER JOIN places ON places.id=placestags.placeid 
+  INNER JOIN tags ON tags.id=placestags.tagid
+  WHERE tags.name = "japanese"
+INTERSECT 
+SELECT places.name FROM placestags 
+  INNER JOIN places ON places.id=placestags.placeid 
+  INNER JOIN tags ON tags.id=placestags.tagid
+  WHERE tags.name = "korean";
+</code></pre>
+
+<p>The first example is very fast. On ~260,000 rows it took about 103ms.
+The second query is a bit more complicated since we are adding an extra
+join, but it is still relatively quick. On ~260,000 rows it took about 543 ms.</p>
+
+<h5>Note:</h5>
+
+<p>Remember when searching for tags by name that the query is case sensitive. </p>

@@ -1,0 +1,38 @@
+<p><link href="../markdown.css" rel="stylesheet"></link></p>
+
+<p><a href="index.html">SQLite Cheat Sheet</a></p>
+
+<h1>OPTIMIZATIONS</h1>
+
+<p><a href="http://web.utk.edu/~jplyon/sqlite/SQLite_optimization_FAQ.html">SQLite Optimization FAQ</a> was a great help in compiling this.</p>
+
+<p>Also, I will borrow his copyright notice,</p>
+
+<pre><code>** The author disclaims copyright to this material.
+** In place of a legal notice, here is a blessing:
+**
+**    May you do good and not evil.
+**    May you find forgiveness for yourself and forgive others.
+**    May you share freely, never taking more than you give.
+</code></pre>
+
+<h2>Pragmas</h2>
+
+<p>Some default values to adjust include:</p>
+
+<ul>
+<li>synchronous</li>
+<li>cache_size</li>
+<li>temp_store</li>
+</ul>
+
+<p>Also, when dealing with large data sets, and in the command line, set the following,</p>
+
+<pre><code>.mode csv
+.output output.csv
+</code></pre>
+
+<p>This way it isn't output to the screen, but to a file. Note, however, that it will also redirect
+pragma outputs as well. So if you aren't seeing responses to your commands, they are in the output file.</p>
+
+<h3>Synchronous</h3>

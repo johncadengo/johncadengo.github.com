@@ -1,0 +1,90 @@
+<p><link href="../markdown.css" rel="stylesheet"></link></p>
+
+<p><a href="index.html">SQLite Cheat Sheet</a></p>
+
+<h1>MIGRATIONS</h1>
+
+<p>Since we are using SQLite and it has limited <code>ALTER TABLE</code> support,
+we have to do some gymnastics when it comes to changing table schemas.</p>
+
+<h2>Migrate Locations Table</h2>
+
+<p>Here we would like to change the primary key of a table from being composed 
+of multiple columns back to a simple <code>id</code> taking advantage of the built in <code>rowid</code>.</p>
+
+<p>The old schema went something like this,</p>
+
+<pre><code>CREATE TABLE locations (
+    placeid INTEGER, 
+    lat FLOAT NOT NULL, 
+    lng FLOAT NOT NULL, 
+    rad_lat FLOAT, 
+    rad_lng FLOAT, 
+    sin_rad_lat FLOAT, 
+    cos_rad_lat FLOAT, 
+    PRIMARY KEY (lat, lng), 
+    FOREIGN KEY(placeid) REFERENCES places (id)
+)
+</code></pre>
+
+<p>We want something more like this,</p>
+
+<pre><code>CREATE TABLE locations (
+    id INTEGER NOT NULL, 
+    placeid INTEGER, 
+    lat FLOAT NOT NULL, 
+    lng FLOAT NOT NULL, 
+    rad_lat FLOAT, 
+    rad_lng FLOAT, 
+    sin_rad_lat FLOAT, 
+    cos_rad_lat FLOAT, 
+    PRIMARY KEY (id), 
+    FOREIGN KEY(placeid) REFERENCES places (id)
+)
+</code></pre>
+
+<p>In other words, we want to change the primary key from being the <code>lat</code> and <code>lng</code> values
+to a garden-variety, self-incrementing <code>id</code>. We will use SQLite's built in <code>rowid</code> to accomplish this.</p>
+
+<p>We run the following code, adapted from an <a href="http://www.sqlite.org/faq.html#q11">FAQ</a>,</p>
+
+<pre><code>CREATE TEMPORARY TABLE locations_backup(
+        placeid INTEGER, 
+        lat FLOAT NOT NULL, 
+        lng FLOAT NOT NULL, 
+        rad_lat FLOAT, 
+        rad_lng FLOAT, 
+        sin_rad_lat FLOAT, 
+        cos_rad_lat FLOAT, 
+        PRIMARY KEY (lat, lng), 
+        FOREIGN KEY(placeid) REFERENCES places (id)
+);
+INSERT INTO locations_backup SELECT placeid,lat,lng,rad_lat,rad_lng,sin_rad_lat,cos_rad_lat FROM locations;
+DROP TABLE locations;
+CREATE TABLE locations (
+    id INTEGER NOT NULL,
+    placeid INTEGER, 
+    lat FLOAT NOT NULL, 
+    lng FLOAT NOT NULL, 
+    rad_lat FLOAT, 
+    rad_lng FLOAT, 
+    sin_rad_lat FLOAT, 
+    cos_rad_lat FLOAT,
+    PRIMARY KEY(id),
+    FOREIGN KEY(placeid) REFERENCES places (id)
+);
+INSERT INTO locations SELECT rowid,placeid,lat,lng,rad_lat,rad_lng,sin_rad_lat,cos_rad_lat FROM locations_backup;
+DROP TABLE locations_backup;
+</code></pre>
+
+<p>This basically creates a new temporary table, saves our existing data to it, drops the old table, 
+creates a new one to replace it, and then restores the data back from the temporary table. It's a 
+good old <a href="http://en.wikipedia.org/wiki/Swap_%28computer_science%29">swap</a>.</p>
+
+<h5>Note:</h5>
+
+<p>The temporary <code>locations_backup</code> table has less columns than the new <code>locations</code> table. The column
+we are adding is <code>id</code> and that can be accomplished in the <code>SELECT</code> with <code>rowid</code> as shown above.
+If we weren't using <code>rowid</code>, we'd have to figure out another way to account for the difference
+in the number of columns. We could do it in two steps, for example, by first filling up the id,
+then inserting the other columns.</p>
