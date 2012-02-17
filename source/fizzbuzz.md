@@ -1,6 +1,6 @@
 <link href="markdown.css" rel="stylesheet"></link>
 
-[Feedback](index.html)
+[Thousandnote](index.html)
 
 FizzBuzz
 ========
