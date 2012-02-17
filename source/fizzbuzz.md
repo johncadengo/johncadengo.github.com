@@ -112,6 +112,8 @@ Here I've only solved the problem up to `15` but it holds generally up to `100` 
 
 This is a general framework for you to follow in creating Python programs with a `__main__`. It isn't necessary to include `__main__` in Python, but because you are coming from Java it might be a little more familiar to you. I will explain more in the coming weeks.
 
+Obligatory XKCD: ![XKCD Python](http://imgs.xkcd.com/comics/python.png "XKCD Python")
+
 Some fun with math
 ------------------
 I studied Math-Computer Science in undergrad, and so I like to play with the math behind the code. The comment in my Python solution, about the [Inclusion-exclusion principle](http://en.wikipedia.org/wiki/Inclusion&#45;exclusion_principle),
