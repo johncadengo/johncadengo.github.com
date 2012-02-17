@@ -108,22 +108,30 @@ This is a general framework for you to follow in creating Python programs with a
 
 Some fun with math
 ------------------
-I studied Math-Computer Science in undergrad, and so I like to play with the math behind the code. The comment in my Python solution, about the [Inclusion-exclusion principle](http://en.wikipedia.org/wiki/Inclusion–exclusion_principle)
+I studied Math-Computer Science in undergrad, and so I like to play with the math behind the code. The comment in my Python solution, about the [Inclusion-exclusion principle](http://en.wikipedia.org/wiki/Inclusion–exclusion_principle),
 
-    # |A union B| = |A| + |B| - |A intersect B|
+    |A union B| = |A| + |B| - |A intersect B|
     
-is just a reminder to me of how to understand the sets involved. The notation `|A|` means `the number of elements in the set A`. So in our case, we can calculate the # of Fizzes, Buzzes, and Fizzbuzzes as follows,
+is just a reminder to me of how to understand the [sets](http://en.wikipedia.org/wiki/Set_&#40;mathematics&#41;) involved. The notation `|A|` means `the number of elements in the set A`. So in our case, we can calculate the # of Fizzes, Buzzes, and Fizzbuzzes as follows,
 
     Let A be the set of multiples of 3
     Let B be the set of multiples of 5
     
 Then,
 
+    (A intersect B) is the set of multiples divisible by 3 and 5
+
+And,
+
+    (A union B) is the set of multiples divisible by either 3 or 5
+    
+So,
+
     |A| = Floor(100 / 3) = 33
     |B| = Floor(100 / 5) = 20
     |A intersect B| = Floor(100 / 15) = 6
     
-The key here is to observe that numbers divisible by *both* `3` and `5` are divisible by their least common multiple `15`. And so, we can conclude,
+The key here is to observe that numbers divisible by both `3` *and* `5` are divisible by their least common multiple `15`. And so, we can conclude,
 
     |A union B| = 33 + 20 - 6 = 47
     

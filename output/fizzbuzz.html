@@ -112,12 +112,12 @@ if __name__ == '__main__':
 
 <h2>Some fun with math</h2>
 
-<p>I studied Math-Computer Science in undergrad, and so I like to play with the math behind the code. The comment in my Python solution, about the <a href="http://en.wikipedia.org/wiki/Inclusion–exclusion_principle">Inclusion-exclusion principle</a></p>
+<p>I studied Math-Computer Science in undergrad, and so I like to play with the math behind the code. The comment in my Python solution, about the <a href="http://en.wikipedia.org/wiki/Inclusion–exclusion_principle">Inclusion-exclusion principle</a>,</p>
 
-<pre><code># |A union B| = |A| + |B| - |A intersect B|
+<pre><code>|A union B| = |A| + |B| - |A intersect B|
 </code></pre>
 
-<p>is just a reminder to me of how to understand the sets involved. The notation <code>|A|</code> means <code>the number of elements in the set A</code>. So in our case, we can calculate the # of Fizzes, Buzzes, and Fizzbuzzes as follows,</p>
+<p>is just a reminder to me of how to understand the <a href="http://en.wikipedia.org/wiki/Set_&#40;mathematics&#41;">sets</a> involved. The notation <code>|A|</code> means <code>the number of elements in the set A</code>. So in our case, we can calculate the # of Fizzes, Buzzes, and Fizzbuzzes as follows,</p>
 
 <pre><code>Let A be the set of multiples of 3
 Let B be the set of multiples of 5
@@ -125,12 +125,22 @@ Let B be the set of multiples of 5
 
 <p>Then,</p>
 
+<pre><code>(A intersect B) is the set of multiples divisible by 3 and 5
+</code></pre>
+
+<p>And,</p>
+
+<pre><code>(A union B) is the set of multiples divisible by either 3 or 5
+</code></pre>
+
+<p>So,</p>
+
 <pre><code>|A| = Floor(100 / 3) = 33
 |B| = Floor(100 / 5) = 20
 |A intersect B| = Floor(100 / 15) = 6
 </code></pre>
 
-<p>The key here is to observe that numbers divisible by <em>both</em> <code>3</code> and <code>5</code> are divisible by their least common multiple <code>15</code>. And so, we can conclude,</p>
+<p>The key here is to observe that numbers divisible by both <code>3</code> <em>and</em> <code>5</code> are divisible by their least common multiple <code>15</code>. And so, we can conclude,</p>
 
 <pre><code>|A union B| = 33 + 20 - 6 = 47
 </code></pre>
