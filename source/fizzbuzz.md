@@ -78,7 +78,9 @@ Eventually, I'd like you to start programming in Python, so I'll also provide th
     """
     Fizzbuzz.py
     
-    Write a program that prints the numbers from 1 to 100. But for multiples of three print 'Fizz' instead of the number and for the multiples of five print 'Buzz'. For numbers which are multiples of both three and five print 'FizzBuzz'.
+    Write a program that prints the numbers from 1 to 100. But for multiples of three 
+    print 'Fizz' instead of the number and for the multiples of five print 'Buzz'. 
+    For numbers which are multiples of both three and five print 'FizzBuzz'.
     """
     def fizzbuzz():
         # Inclusion-exclusion principle:
