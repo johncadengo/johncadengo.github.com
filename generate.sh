@@ -21,7 +21,7 @@ git commit -a -m "Generate."
 git push gh source
 
 echo "Committing and pushing master to Github."
-cd Feedback
+cd output
 git commit -a -m "Generate."
 git push origin master
 cd ..
