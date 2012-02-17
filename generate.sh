@@ -16,13 +16,21 @@ echo "Generating index of the files we've just created."
 echo "Adding the new files to the git if they haven't already been."
 git add output
 
+# Figure out if user passed a custom commit message or not
+
+if [[ -z $1 ]]; then
+    MSG="Generate."
+else
+    MSG=$1
+fi
+
 echo "Comitting and pushing source to Github."
-git commit -a -m "Generate."
+git commit -a -m "$MSG"
 git push gh source
 
 echo "Committing and pushing master to Github."
 cd output
-git commit -a -m "Generate."
+git commit -a -m "$MSG"
 git push origin master
 cd ..
 
