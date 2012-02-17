@@ -145,4 +145,4 @@ The key here is to observe that numbers divisible by both `3` *and* `5` are divi
 
     |A union B| = 33 + 20 - 6 = 47
     
-This may prove useful in understanding, if not solving, the next problem I have assigned.
+This may prove useful in understanding, if not solving, the next problem I will assign.
