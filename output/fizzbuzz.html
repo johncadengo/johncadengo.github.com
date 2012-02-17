@@ -46,24 +46,27 @@
 <h2>My feedback</h2>
 
 <p>I know that you came up with the most straightforward solution, and
-it isn't the most elegant, but that's ok. I took the liberty to simplify your code,</p>
+it isn't the most elegant, but that's ok. I took the liberty to simplify your code a little bit,</p>
 
 <pre><code>public static void runthenumbers() throws IOException{
     String txt;
     for(int x=1; x&lt;=100;x++)
     {
         txt="";
+
         if (x%3==0){
             txt="Fizz";
         }
+
         if(x%5==0){
             txt=txt + "Buzz";
         }
+
         if(x%3!=0 &amp;&amp; x%5!=0){
             txt=Integer.toString(x);
         }
 
-          out.println(txt);
+        out.println(txt);
     }
 }
 </code></pre>

@@ -44,24 +44,27 @@ Good job! Your code works well. It gets the job done.
 My feedback
 -----------
 I know that you came up with the most straightforward solution, and
-it isn't the most elegant, but that's ok. I took the liberty to simplify your code,
+it isn't the most elegant, but that's ok. I took the liberty to simplify your code a little bit,
 
     public static void runthenumbers() throws IOException{
 		String txt;
 		for(int x=1; x<=100;x++)
 		{
 			txt="";
+			
 			if (x%3==0){
 				txt="Fizz";
 			}
+			
 			if(x%5==0){
 				txt=txt + "Buzz";
 			}
+			
 			if(x%3!=0 && x%5!=0){
      			txt=Integer.toString(x);
 			}
 			
-              out.println(txt);
+			out.println(txt);
 		}
 	}
 
