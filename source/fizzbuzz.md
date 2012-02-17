@@ -39,8 +39,12 @@ Your solution
             }
     }
     
+Good job! Your code works well. 
+
 My revisions
 ------------
+I know that you came up with the most straightforward solution, and
+it isn't the most elegant, but that's ok. I took the liberty to simplify your code,
 
     public static void runthenumbers() throws IOException{
 		String txt;
@@ -60,6 +64,5 @@ My revisions
               out.println(txt);
 		}
 	}
-	
-Commentary
-----------
+
+There is no real need for you to have a separate boolean to determine if you are going to print out the string `divisible` or the integer `i` in the for loop. You can handle that with a single condition: `if(x%3!=0 && x%5!=0)`.

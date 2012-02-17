@@ -41,7 +41,12 @@
 }
 </code></pre>
 
+<p>Good job! Your code works well. </p>
+
 <h2>My revisions</h2>
+
+<p>I know that you came up with the most straightforward solution, and
+it isn't the most elegant, but that's ok. I took the liberty to simplify your code,</p>
 
 <pre><code>public static void runthenumbers() throws IOException{
     String txt;
@@ -63,4 +68,4 @@
 }
 </code></pre>
 
-<h2>Commentary</h2>
+<p>There is no real need for you to have a separate boolean to determine if you are going to print out the string <code>divisible</code> or the integer <code>i</code> in the for loop. You can handle that with a single condition: <code>if(x%3!=0 &amp;&amp; x%5!=0)</code>.</p>
