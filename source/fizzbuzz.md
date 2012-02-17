@@ -69,9 +69,11 @@ There is no real need for you to have a separate boolean to determine if you are
 
 A Python Solution
 -----------------
-Eventually, I'd like you to be programming in Python, so I'll also provide the solution in Python so you can begin to pick up the language,
+Eventually, I'd like you to start programming in Python, so I'll also provide the solution in Python so you can begin to pick up the language,
 
     """
+    Fizzbuzz.py
+    
     Write a program that prints the numbers from 1 to 100. But for multiples of three print 'Fizz' instead of the number and for the multiples of five print 'Buzz'. For numbers which are multiples of both three and five print 'FizzBuzz'.
     """
     def fizzbuzz():
@@ -101,3 +103,9 @@ Eventually, I'd like you to be programming in Python, so I'll also provide the s
     if __name__ == '__main__':
        print __doc__
        print "Test successful:", test()
+
+This is a general framework for you to follow in creating Python programs with a `__main__`. It isn't necessary to include `__main__` in Python, but because you are coming from Java it might be a little more familiar to you.
+
+Math
+----
+I studied Math-Computer Science in undergrad, and so I come from a more math based background than most CS majors.
