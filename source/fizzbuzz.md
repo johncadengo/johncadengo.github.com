@@ -3,7 +3,7 @@
 [Feedback](index.html)
 
 FizzBuzz
-=======
+========
 Problem:
 
 > Write a program that prints the numbers from 1 to 100. But for multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz". For numbers which are multiples of both three and five print "FizzBuzz".
@@ -104,8 +104,27 @@ Eventually, I'd like you to start programming in Python, so I'll also provide th
        print __doc__
        print "Test successful:", test()
 
-This is a general framework for you to follow in creating Python programs with a `__main__`. It isn't necessary to include `__main__` in Python, but because you are coming from Java it might be a little more familiar to you.
+This is a general framework for you to follow in creating Python programs with a `__main__`. It isn't necessary to include `__main__` in Python, but because you are coming from Java it might be a little more familiar to you. I will explain more in the coming weeks.
 
-Math
-----
-I studied Math-Computer Science in undergrad, and so I come from a more math based background than most CS majors.
+Some fun with math
+------------------
+I studied Math-Computer Science in undergrad, and so I like to play with the math behind the code. The comment in my Python solution, about the [Inclusion-exclusion principle](http://en.wikipedia.org/wiki/Inclusion–exclusion_principle)
+
+    # |A union B| = |A| + |B| - |A intersect B|
+    
+is just a reminder to me of how to understand the sets involved. The notation `|A|` means `the number of elements in the set A`. So in our case, we can calculate the # of Fizzes, Buzzes, and Fizzbuzzes as follows,
+
+    Let A be the set of multiples of 3
+    Let B be the set of multiples of 5
+    
+Then,
+
+    |A| = Floor(100 / 3) = 33
+    |B| = Floor(100 / 5) = 20
+    |A intersect B| = Floor(100 / 15) = 6
+    
+The key here is to observe that numbers divisible by *both* `3` and `5` are divisible by their least common multiple `15`. And so, we can conclude,
+
+    |A union B| = 33 + 20 - 6 = 47
+    
+This may prove useful in understanding, if not solving, the next problem I have assigned.
