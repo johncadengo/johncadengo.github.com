@@ -2,7 +2,7 @@
 
 [Feedback](index.html)
 
-FIZZBUZZ
+FizzBuzz
 =======
 Problem:
 
@@ -10,23 +10,56 @@ Problem:
 
 Your solution
 -------------
-    String divisable;
-    boolean mod;
-    for(int x=1; x<=100;x++)
-    {
-    divisable="";
-    mod=false;
-    if (x%3==0){
-        divisable="Fizz";
-        mod=true;
+    
+    public static void runthenumbers() throws IOException{
+        String divisable;
+        boolean mod;
+    
+        for(int x=1; x<=100;x++)
+        {
+            divisable="";
+            mod=false;
+            
+            if (x%3==0){
+                divisable="Fizz";
+                mod=true;
+            }
+            
+            if(x%5==0){
+                divisable=divisable + "Buzz";
+                mod=true;
+            }
+            
+            if(mod==true){
+                out.println(divisable);
+            }
+            
+            else if (mod==false){
+                out.println(x);
+            }
     }
-    if(x%5==0){
-        divisable=divisable + "Buzz";
-        mod=true;
-    }
-    if(mod==true){
-        out.println(divisable);
-    }
-    else if (mod==false){
-        out.println(x);
-    }
+    
+My revisions
+------------
+
+    public static void runthenumbers() throws IOException{
+		String txt;
+		for(int x=1; x<=100;x++)
+		{
+			txt="";
+			if (x%3==0){
+				txt="Fizz";
+			}
+			if(x%5==0){
+				txt=txt + "Buzz";
+			}
+			if(x%3!=0 && x%5!=0){
+     			txt=Integer.toString(x);
+			}
+			
+              out.println(txt);
+		}
+	}
+	
+Commentary
+----------
