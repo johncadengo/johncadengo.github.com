@@ -108,7 +108,7 @@ This is a general framework for you to follow in creating Python programs with a
 
 Some fun with math
 ------------------
-I studied Math-Computer Science in undergrad, and so I like to play with the math behind the code. The comment in my Python solution, about the [Inclusion-exclusion principle](http://en.wikipedia.org/wiki/Inclusion–exclusion_principle),
+I studied Math-Computer Science in undergrad, and so I like to play with the math behind the code. The comment in my Python solution, about the [Inclusion-exclusion principle](http://en.wikipedia.org/wiki/Inclusion&#45;exclusion_principle),
 
     |A union B| = |A| + |B| - |A intersect B|
     
