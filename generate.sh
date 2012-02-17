@@ -13,4 +13,13 @@ done
 echo "Generating index of the files we've just created."
 ./auto-index.sh ./output > ./output/index.html
 
+echo "Committing it."
+git commit -a -m "Generate."
+
+echo "Pushing it."
+git push origin master
+
+echo "Pulling it remotely."
+ssh cadengo@thedashapp.com '/home/cadengo/Feedback/git pull'
+
 echo "Done."

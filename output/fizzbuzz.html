@@ -2,7 +2,7 @@
 
 <p><a href="index.html">Feedback</a></p>
 
-<h1>FIZZBUZZ</h1>
+<h1>FizzBuzz</h1>
 
 <p>Problem:</p>
 
@@ -12,24 +12,55 @@
 
 <h2>Your solution</h2>
 
-<pre><code>String divisable;
-boolean mod;
-for(int x=1; x&lt;=100;x++)
-{
-divisable="";
-mod=false;
-if (x%3==0){
-    divisable="Fizz";
-    mod=true;
-}
-if(x%5==0){
-    divisable=divisable + "Buzz";
-    mod=true;
-}
-if(mod==true){
-    out.println(divisable);
-}
-else if (mod==false){
-    out.println(x);
+<pre><code>public static void runthenumbers() throws IOException{
+    String divisable;
+    boolean mod;
+
+    for(int x=1; x&lt;=100;x++)
+    {
+        divisable="";
+        mod=false;
+
+        if (x%3==0){
+            divisable="Fizz";
+            mod=true;
+        }
+
+        if(x%5==0){
+            divisable=divisable + "Buzz";
+            mod=true;
+        }
+
+        if(mod==true){
+            out.println(divisable);
+        }
+
+        else if (mod==false){
+            out.println(x);
+        }
 }
 </code></pre>
+
+<h2>My revisions</h2>
+
+<pre><code>public static void runthenumbers() throws IOException{
+    String txt;
+    for(int x=1; x&lt;=100;x++)
+    {
+        txt="";
+        if (x%3==0){
+            txt="Fizz";
+        }
+        if(x%5==0){
+            txt=txt + "Buzz";
+        }
+        if(x%3!=0 &amp;&amp; x%5!=0){
+            txt=Integer.toString(x);
+        }
+
+          out.println(txt);
+    }
+}
+</code></pre>
+
+<h2>Commentary</h2>
