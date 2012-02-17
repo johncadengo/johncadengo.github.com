@@ -104,6 +104,8 @@ Eventually, I'd like you to start programming in Python, so I'll also provide th
        print __doc__
        print "Test successful:", test()
 
+Here I've only solved the problem up to `15` but it holds generally up to `100` and beyond.
+
 This is a general framework for you to follow in creating Python programs with a `__main__`. It isn't necessary to include `__main__` in Python, but because you are coming from Java it might be a little more familiar to you. I will explain more in the coming weeks.
 
 Some fun with math
