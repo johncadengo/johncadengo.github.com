@@ -20,6 +20,6 @@ echo "Pushing it."
 git push origin master
 
 echo "Pulling it remotely."
-ssh cadengo@thedashapp.com 'git --git-dir=Feedback/.git pull'
+ssh cadengo@thedashapp.com 'cd Feedback && git pull'
 
 echo "Done."
