@@ -1,13 +1,14 @@
-<link href="markdown.css" type="text/css" rel="stylesheet"></link>
-<link href="prettify.css" type="text/css" rel="stylesheet"></link>
-<script type="text/javascript" src="js/google-code-prettify/prettify.js"></script>
-<script type="text/javascript" src="js/myscripts.js"></script>
-<script type="text/javascript">
-$(function() {
-    styleCode();
-});
-</script>
+<!doctype html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="markdown.css" type="text/css" rel="stylesheet"></link>
+    <link href="prettify.css" type="text/css" rel="stylesheet"></link>
+    <script type="text/javascript" src="js/google-code-prettify/prettify.js"></script>
+    <script type="text/javascript" src="js/myscripts.js"></script>
+    <title>Thousand Note - FizzBuzz</title>
+</head>
 
+<body onload="sytleCode()">
 
 [Thousandnote](index.html)
 
@@ -155,3 +156,6 @@ The key here is to observe that numbers divisible by both `3` *and* `5` are divi
     |A union B| = 33 + 20 - 6 = 47
     
 This may prove useful in understanding, if not solving, the next problem I will assign.
+
+</body>
+</html>
