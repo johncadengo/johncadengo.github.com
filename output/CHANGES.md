@@ -1,11 +1,10 @@
 Changes
 =======
 
-19 Feb 2012
------------
+## 19 Feb 2012
 * Starting to keep track of changes.
 * Added syntax highlighting with Google's prettify and some Stackoverflow code.
 
-## TODO
+#### TODO
 * Add MathJax.
 * Inheritance? Templating? Either manually or through Jinja or another similar tool.
