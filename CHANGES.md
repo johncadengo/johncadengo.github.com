@@ -8,3 +8,4 @@ Changes
 #### TODO
 * Add MathJax.
 * Inheritance? Templating? Either manually or through Jinja or another similar tool.
+* Redo auto-index. Code in Python something more advanced, and reuseable.
