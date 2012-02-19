@@ -3,6 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link href="markdown.css" type="text/css" rel="stylesheet"></link>
     <link href="prettify.css" type="text/css" rel="stylesheet"></link>
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="js/google-code-prettify/prettify.js"></script>
     <script type="text/javascript" src="js/myscripts.js"></script>
     <title>Thousand Note - FizzBuzz</title>
