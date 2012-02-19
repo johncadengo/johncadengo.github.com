@@ -13,8 +13,13 @@ done
 echo "Generating index of the files we've just created."
 ./auto-index.sh ./output > ./output/index.html
 
-echo "Adding the new files to the git if they haven't already been."
-git add output
+echo "Adding the new files to source."
+git add *
+
+echo "Adding new files to master."
+cd output
+git add *
+cd ..
 
 # Figure out if user passed a custom commit message or not
 if [[ -z $1 ]]; then
