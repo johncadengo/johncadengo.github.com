@@ -17,7 +17,6 @@ echo "Adding the new files to the git if they haven't already been."
 git add output
 
 # Figure out if user passed a custom commit message or not
-
 if [[ -z $1 ]]; then
     MSG="Generate."
 else

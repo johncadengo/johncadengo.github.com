@@ -1,4 +1,13 @@
-<link href="markdown.css" rel="stylesheet"></link>
+<link href="markdown.css" type="text/css" rel="stylesheet"></link>
+<link href="prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="js/prettify.js"></script>
+<script type="text/javascript" src="js/myscripts.js"></script>
+<script type="text/javascript">
+$(function() {
+    styleCode();
+});
+</script>
+
 
 [Thousandnote](index.html)
 
