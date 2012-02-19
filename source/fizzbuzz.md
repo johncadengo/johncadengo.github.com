@@ -8,7 +8,7 @@
     <title>Thousand Note - FizzBuzz</title>
 </head>
 
-<body onload="sytleCode()">
+<body onload="styleCode()">
 
 [Thousandnote](index.html)
 
