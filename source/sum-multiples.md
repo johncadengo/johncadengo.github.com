@@ -91,11 +91,23 @@ from there, a clever solution becomes much simpler!
 Elegance with math
 ------------------
 Remember how I explained how we can count the number of multiples of two numbers 
-with the inclusion-exclusion principle? Let's apply that here.
+with the inclusion-exclusion principle? Let's apply some of that here.
 
-    Let \left | A \right | be the set of multiples of 3 below 1000
-    Let \left | B \right | be the set of multiples of 5 below 1000
+    Let |A| be the set of multiples of 3 below 1000
+    Let |B| be the set of multiples of 5 below 1000
     
 Then,
 
-    
+\left | A \right | = \left \lfloor 999 / 3 \right \rfloor = 333
+\left | B \right | = \left \lfloor 999 / 5 \right \rfloor = 199
+\left | A \cap B \right | = \left \lfloor 999 / 15 \right \rfloor = 66
+
+But how do you get the sum from this information? With a little help from 
+[arithmetic progressions](http://en.wikipedia.org/wiki/Arithmetic_progression),
+we come up with the formula,
+
+3*333*(1+333)/2 + 5*199*(1+199)/2 - 15*66*(1+66)/2
+
+And the solution
+
+= 233168.
