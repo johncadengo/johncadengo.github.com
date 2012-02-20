@@ -105,7 +105,7 @@ Then,
 But how do you get the sum from this information? With a little help from 
 [arithmetic progressions](http://en.wikipedia.org/wiki/Arithmetic_progression),
 
-[Arithmetic Progression](http://upload.wikimedia.org/wikipedia/en/math/a/f/e/afe20f89d7bfdbd0a191168d80eb8077.png "Arithmetic Progression")
+![Arithmetic Progression](http://upload.wikimedia.org/wikipedia/en/math/a/f/e/afe20f89d7bfdbd0a191168d80eb8077.png "Arithmetic Progression")
 
 We come up with the formula, and the solution,
 
