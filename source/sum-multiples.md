@@ -103,9 +103,9 @@ with the inclusion-exclusion principle? Let's apply some of that here.
     
 Then,
 
-\left | A \right | = \left \lfloor 999 / 3 \right \rfloor = 333
+<math>\left | A \right | = \left \lfloor 999 / 3 \right \rfloor = 333
 \left | B \right | = \left \lfloor 999 / 5 \right \rfloor = 199
-\left | A \cap B \right | = \left \lfloor 999 / 15 \right \rfloor = 66
+\left | A \cap B \right | = \left \lfloor 999 / 15 \right \rfloor = 66</math>
 
 But how do you get the sum from this information? With a little help from 
 [arithmetic progressions](http://en.wikipedia.org/wiki/Arithmetic_progression),
