@@ -106,4 +106,4 @@ But how do you get the sum from this information? With a little help from
 [arithmetic progressions](http://en.wikipedia.org/wiki/Arithmetic_progression),
 we come up with the formula, and the solution,
 
-    3*333*(1+333)/2 + 5*199*(1+199)/2 - 15*66*(1+66)/2 = 233168.
+    3*333*(1+333)/2 + 5*199*(1+199)/2 - 15*66*(1+66)/2 = 233168
