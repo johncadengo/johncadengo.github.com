@@ -107,6 +107,6 @@ But how do you get the sum from this information? With a little help from
 
 ![Arithmetic Progression](http://upload.wikimedia.org/wikipedia/en/math/a/f/e/afe20f89d7bfdbd0a191168d80eb8077.png "Arithmetic Progression")
 
-We come up with the formula, and the solution,
+Where <i>a</i><sub>1</sub> is the initial term and <i>a</i><sub>n</sub> the nth. We come up with the formula, and the solution,
 
     3*333*(1+333)/2 + 5*199*(1+199)/2 - 15*66*(1+66)/2 = 233168
