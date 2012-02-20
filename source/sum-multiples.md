@@ -7,7 +7,7 @@
     <script type="text/javascript" src="js/google-code-prettify/prettify.js"></script>
     <script type="text/javascript" src="https://d3eoax9i5htok0.cloudfront.net/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="js/myscripts.js"></script>
-    <title>Thousand Note - FizzBuzz</title>
+    <title>Thousand Note - The Sum of Multiples</title>
 </head>
 
 <body onload="styleCode()">
@@ -85,32 +85,17 @@ First of all, we iterate over every number from 1 to 1000, when it is obvious
 that most numbers, including 1 and 2, aren't multiples of 3 or 5. 
 
 And second, as we learned with the [FizzBuzz](http://thousandnote.com/fizzbuzz.html) problem,
-we can actually figure out exactly how many numbers are multiples of 3 and 5 with math! And
-from there, a clever solution becomes much simpler.
+we can actually figure out exactly how many numbers are multiples of 3 and 5 with math. And
+from there, a clever solution becomes much simpler!
 
 Elegance with math
 ------------------
-This is just a test
+Remember how I explained how we can count the number of multiples of two numbers 
+with the inclusion-exclusion principle? Let's apply that here.
 
-<math mode="display">
-  <mi>x</mi> <mo>=</mo>
-  <mrow>
-    <mfrac>
-      <mrow>
-        <mo>&#x2212;</mo>
-        <mi>b</mi>
-        <mo>&#x00B1;</mo>
-        <msqrt>
-          <msup><mi>b</mi><mn>2</mn></msup>
-          <mo>&#x2212;</mo>
-          <mn>4</mn><mi>a</mi><mi>c</mi>
-        </msqrt>
-      </mrow>
-      <mrow> <mn>2</mn><mi>a</mi> </mrow>
-    </mfrac>
-  </mrow>
-  <mtext>.</mtext>
-</math>
+    Let \left | A \right | be the set of multiples of 3 below 1000
+    Let \left | B \right | be the set of multiples of 5 below 1000
+    
+Then,
 
-</body>
-</html>
+    
