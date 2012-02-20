@@ -5,11 +5,6 @@
     <link href="prettify.css" type="text/css" rel="stylesheet"></link>
     <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="js/google-code-prettify/prettify.js"></script>
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-    });
-    </script>
     <script type="text/javascript" src="https://d3eoax9i5htok0.cloudfront.net/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="js/myscripts.js"></script>
     <title>Thousand Note - The Sum of Multiples</title>
@@ -103,16 +98,12 @@ with the inclusion-exclusion principle? Let's apply some of that here.
     
 Then,
 
-<math>\left | A \right | = \left \lfloor 999 / 3 \right \rfloor = 333
-\left | B \right | = \left \lfloor 999 / 5 \right \rfloor = 199
-\left | A \cap B \right | = \left \lfloor 999 / 15 \right \rfloor = 66</math>
+    |A| = Floor(999/3) = 333
+    |B| = Floor(999/5) = 199
+    |A intersect B| = Floor(999/15) = 66
 
 But how do you get the sum from this information? With a little help from 
 [arithmetic progressions](http://en.wikipedia.org/wiki/Arithmetic_progression),
-we come up with the formula,
+we come up with the formula, and the solution,
 
-3*333*(1+333)/2 + 5*199*(1+199)/2 - 15*66*(1+66)/2
-
-And the solution
-
-= 233168.
+    3*333*(1+333)/2 + 5*199*(1+199)/2 - 15*66*(1+66)/2 = 233168.
