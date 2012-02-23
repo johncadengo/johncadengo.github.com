@@ -192,7 +192,7 @@ in your solution, but only `n` or the upper limit as in mine.
 
 Math
 ----
-A brilliant solution to the problem, which I found on a forum, is as follows,
+A brilliant solution to the problem, but with a limit of `1000000`, which I found on a forum, is as follows,
 
     Phi (golden ratio) is the approximate ratio between
     two consecutive terms in a Fibonacci sequence.
