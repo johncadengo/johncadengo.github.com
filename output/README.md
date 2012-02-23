@@ -12,4 +12,4 @@ Instead of a legal notice, I offer a [blessing](http://www.sqlite.org/different.
 >
 > May you find forgiveness for yourself and the grace to forgive others.
 >
-> May you share freely knowing you were given all things freely by your Creator.
+> May you give freely knowing that all things you have were received.
