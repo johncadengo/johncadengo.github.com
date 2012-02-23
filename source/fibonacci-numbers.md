@@ -146,9 +146,9 @@ there are exceptions, you should not be copying and pasting major parts of your 
 If there are parts of your code that look very similar save the names of certain variables
 you should be thinking about how to refactor that code into a more reusable form.
 
-Here is a simple refactoring of your code in pseudocode. There is probably more that could be done,
-
-
+Refactoring the `main` would consequently have encouraged you to refactor all of the
+functions in general to have a common [interface](http://en.wikipedia.org/wiki/Interface_&#40;object-oriented_programming&#41;), 
+which is a very important part of modularity, one of the main tenets of of object-oriented programming.
 
 Python Comparison
 -----------------
@@ -159,8 +159,8 @@ Two ways to generate Fibonacci numbers I came up with real quick.
        Naive recursive implemention for generating a fibonacci number.
        
        .. note::
-          The stack gets overwhelmed if n is too large, and can crash the program.
-       
+          The stack gets overwhelmed if n is too large, and runs horribly slow.
+                 
        """
        if n == 0 or n == 1: 
           # Base cases
